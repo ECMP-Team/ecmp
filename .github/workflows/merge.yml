@@ -1,0 +1,30 @@
+name: Move Frontend & Backend Code on Merge
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  organize_code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Move Frontend Code
+        if: github.event.pull_request.head.ref == 'frontend'
+        run: |
+          mkdir -p frontend
+          git mv * frontend/ 2>/dev/null || true
+          git commit -m "Moved frontend files to frontend/"
+          git push origin main
+
+      - name: Move Backend Code
+        if: github.event.pull_request.head.ref == 'backend'
+        run: |
+          mkdir -p backend
+          git mv * backend/ 2>/dev/null || true
+          git commit -m "Moved backend files to backend/"
+          git push origin main
