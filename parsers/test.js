@@ -2,6 +2,7 @@ import { parseFile } from "../utils/excelParser.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import sendBulkEmail from "../mail/resend.js";
 
 // Get current directory
 const __filename = fileURLToPath(import.meta.url);
@@ -48,9 +49,18 @@ async function testParser() {
 testParser()
   .then((result) => {
     console.log('\n💾 Results stored in "result" variable');
-    console.log(result)
+    console.log(result);
 
+    const emailList = result.map(entry => entry.email);
+    console.log("Extracted Emails:", emailList);
 
+    const BulkMails = {
+      recipients: emailList,
+      subject: "",
+      text: "Hello",
+      html: "<h1>Hello!</h1><p>This is a second test email sent to multiple recipients through an excel file.</p>",
+    };
+    sendBulkEmail(BulkMails);
   })
   .catch((error) => {
     console.error("Test execution failed:", error.message);
