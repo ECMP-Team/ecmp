@@ -3,6 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import sendBulkEmail from "../mail/resend.js";
+import writeMail from "../api/mailWriter.js";
 
 // Get current directory
 const __filename = fileURLToPath(import.meta.url);
@@ -51,18 +52,7 @@ testParser()
     console.log('\n💾 Results stored in "result" variable');
     console.log(result);
 
-    const emailList = result.map(entry => entry.email);
-    console.log("Extracted Emails:", emailList);
-
-    const BulkMails = {
-      recipients: emailList,
-      subject: "",
-      text: "Hello",
-      html: "<h1>Hello!</h1><p>This is a second test email sent to multiple recipients through an excel file.</p>",
-    };
-    sendBulkEmail(BulkMails);
-  })
-  .catch((error) => {
-    console.error("Test execution failed:", error.message);
-    process.exit(1);
-  });
+    result.forEach(async e => {
+      const res = await writeMail(e);
+      sendBulkEmail({email: e.email, text: res.text, html: res.html, subject: res.subject})
+    });})
