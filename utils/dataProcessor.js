@@ -167,3 +167,62 @@ function logResults(result) {
     });
   }
 }
+
+/**
+ * Converts processed lead data into individual email objects
+ * @param {Array} processedData - The processed data from the Excel/CSV file
+ * @param {Object} template - Email template with subject, text, html (can contain placeholders)
+ * @returns {Array} Array of email objects ready to be sent individually
+ */
+export function createIndividualEmails(processedData, template) {
+  Logger.section("Creating Individual Emails");
+  
+  if (!processedData || !processedData.data || processedData.data.length === 0) {
+    Logger.warning("No valid data to create emails from");
+    return [];
+  }
+  
+  if (!template || (!template.subject || (!template.text && !template.html))) {
+    Logger.error("Invalid template provided");
+    throw new Error("Template must include subject and either text or html content");
+  }
+  
+  Logger.info(`Creating ${processedData.data.length} individual emails`);
+  
+  const emails = processedData.data.map(lead => {
+    // Find the email field in the lead data
+    const emailField = Object.keys(lead).find(key => 
+      key.toLowerCase().includes('email')
+    );
+    
+    if (!emailField || !lead[emailField]) {
+      Logger.warning(`Skipping lead with missing email: ${JSON.stringify(lead)}`);
+      return null;
+    }
+    
+    // Replace placeholders in the template
+    let subject = template.subject;
+    let text = template.text || '';
+    let html = template.html || '';
+    
+    // Replace all placeholders like {{fieldName}} with actual values
+    Object.keys(lead).forEach(field => {
+      const placeholder = new RegExp(`{{\\s*${field}\\s*}}`, 'g');
+      const value = lead[field] || '';
+      
+      subject = subject.replace(placeholder, value);
+      if (text) text = text.replace(placeholder, value);
+      if (html) html = html.replace(placeholder, value);
+    });
+    
+    return {
+      recipient: lead[emailField],
+      subject,
+      text,
+      html
+    };
+  }).filter(Boolean); // Remove null entries
+  
+  Logger.success(`Created ${emails.length} individual emails`);
+  return emails;
+}
