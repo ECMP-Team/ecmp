@@ -1,19 +1,29 @@
-name: Build
+ name: Build
+
 on:
   push:
     branches:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
+
 jobs:
   sonarqube:
-    name: SonarQube
+    name: SonarQube Analysis
     runs-on: ubuntu-latest
     steps:
+      # Checkout the code to ensure it's available for analysis
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0  # Ensure the full history is available for the analysis
+      
+      # Run SonarQube scan using the SonarSource action
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
+      # Check for SonarQube analysis failure (optional error handling)
+      - name: Check for SonarQube analysis failure
+        if: failure()
+        run: exit 1
