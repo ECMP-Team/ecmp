@@ -2,7 +2,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import { Logger } from "./logger.js";
-import { parseExcel, parseCSV } from "../parsers/fileParser.js";
+import { parseExcel, parseCSV } from "./fileParser.js";
 
 // Get current file's directory
 const __filename = fileURLToPath(import.meta.url);

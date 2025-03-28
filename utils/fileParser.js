@@ -1,9 +1,9 @@
 import { read, utils } from "xlsx";
 import { parse } from "csv-parse/sync";
 import fs from "fs";
-import { Logger } from "../utils/logger.js";
-import { validateFileSize } from "../utils/validators.js";
-import { processData } from "../utils/dataProcessor.js";
+import { Logger } from "./logger.js";
+import { validateFileSize } from "./validators.js";
+import { processData } from "./dataProcessor.js";
 
 /**
  * Parses Excel file to structured JSON with integrated logging
