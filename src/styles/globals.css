@@ -1,0 +1,454 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark-space: #0A0A0A;
+  --dark-secondary: #121212;
+  --cyber-green: #00FF88;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0A0;
+  --border-radius: 8px; /* Apple-inspired subtle radius */
+  --color-cyber-green: #00ff85;
+  --color-dark-space: #121212;
+  --color-dark-secondary: #1a1a1a;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #999999;
+  --color-cream: #e9e2c9;
+}
+
+html, body {
+  @apply overflow-x-hidden;
+}
+
+body {
+  background-color: var(--dark-space);
+  color: var(--text-primary);
+  min-height: 100vh;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+
+/* Clean section spacing */
+section {
+  @apply py-16 md:py-24;
+}
+
+/* Content container spacing */
+.container {
+  @apply px-4 md:px-6 mx-auto;
+}
+
+/* Subtle custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cyber-green);
+  opacity: 0.5;
+}
+
+/* Minimalist split panel layout */
+.split-panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  height: 500px;
+}
+
+@media (max-width: 768px) {
+  .split-panel-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: auto;
+  }
+}
+
+.left-panel, .right-panel {
+  padding: 1.25rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius);
+}
+
+/* Grid box for square based minimal design */
+.grid-box {
+  border: 2px solid #2d2d35;
+  padding: 1.25rem;
+  background-color: rgba(30, 30, 35, 0.3);
+  border-radius: var(--border-radius);
+}
+
+/* Simple glow effect */
+.hover-glow {
+  @apply transition-all duration-200;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Clean button styling */
+.btn-primary {
+  @apply bg-cyber-green text-dark-space font-medium py-3 px-6 transition-all duration-200;
+  border-radius: 4px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.2);
+}
+
+.btn-secondary {
+  @apply bg-transparent border-2 border-cyber-green text-cyber-green font-medium py-3 px-6 transition-all duration-200;
+  border-radius: 4px;
+}
+
+.btn-secondary:hover {
+  @apply bg-cyber-green bg-opacity-5;
+  transform: translateY(-2px);
+}
+
+/* Text gradient with better visibility */
+.text-gradient-hero {
+  background: linear-gradient(90deg, #FFFFFF, #00FF88 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
+
+.text-gradient-secondary {
+  background: linear-gradient(90deg, #FFFFFF 30%, #efefef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Minimalist card */
+.card-minimal {
+  @apply transition-all duration-300 bg-dark-secondary border-2 border-gray-800;
+}
+
+.card-minimal:hover {
+  @apply border-cyber-green border-opacity-50;
+  transform: translateY(-3px);
+}
+
+/* Bento grid layout */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(140px, auto);
+    gap: 1.5rem;
+  }
+  
+  .bento-cell-wide {
+    grid-column: span 2;
+  }
+  
+  .bento-cell-tall {
+    grid-row: span 2;
+  }
+}
+
+.bento-card {
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  background-color: var(--dark-space);
+}
+
+.bento-card:hover {
+  border-color: rgba(96, 243, 138, 0.15);
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+/* Minimal glassmorphism */
+.glass-minimal {
+  background: rgba(18, 18, 18, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Simple underline animation */
+.minimal-underline {
+  position: relative;
+}
+
+.minimal-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--cyber-green);
+  transition: width 0.3s ease;
+}
+
+.minimal-underline:hover::after {
+  width: 100%;
+}
+
+/* Minimalist shadow */
+.shadow-soft {
+  box-shadow: 0 8px 16px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtle breathing animation */
+.subtle-pulse {
+  animation: subtle-breathing 4s ease-in-out infinite;
+}
+
+@keyframes subtle-breathing {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Feature icon style */
+.feature-icon-wrapper {
+  @apply bg-dark-space w-12 h-12 flex items-center justify-center mb-4;
+  border: 2px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Testimonial quote style */
+.testimonial-quote {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  position: relative;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 2px solid rgba(96, 243, 138, 0.3);
+}
+
+/* Gradient Blur Effect */
+.gradient-blur {
+  position: absolute;
+  background: radial-gradient(circle, rgba(96, 243, 138, 0.6) 0%, rgba(96, 243, 138, 0.1) 70%, transparent 100%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Clean grid layout */
+.grid {
+  @apply gap-6;
+}
+
+/* Simple image treatment */
+img {
+  @apply rounded-none;
+}
+
+/* Pill tag for labels */
+.pill-tag {
+  @apply inline-flex items-center px-3 py-1 text-xs bg-dark-space border-2 border-gray-800;
+}
+
+.pill-tag-accent {
+  @apply border-cyber-green border-opacity-30 text-cyber-green;
+}
+
+.bento-card-square {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 1.5rem;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  border-radius: var(--border-radius);
+}
+
+.bento-card-square:hover {
+  border-color: rgba(96, 243, 138, 0.4);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.glass-panel {
+  background: rgba(30, 30, 35, 0.3);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+}
+
+.animated-gradient {
+  animation: gradient 10s ease infinite;
+  background-size: 400% 400%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-underline {
+  position: relative;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00FF88;
+  transition: width 0.3s ease;
+}
+
+.animated-underline:hover::after {
+  width: 100%;
+}
+
+.shadow-neon {
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), 
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: center center;
+}
+
+/* Common styles for components with borders */
+.apple-radius {
+  border-radius: var(--border-radius);
+}
+
+.apple-radius-sm {
+  border-radius: 4px; /* Smaller radius for buttons and smaller elements */
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Apply custom colors */
+.bg-cyber-green {
+  background-color: var(--color-cyber-green);
+}
+
+.bg-dark-space {
+  background-color: var(--color-dark-space);
+}
+
+.bg-dark-secondary {
+  background-color: var(--color-dark-secondary);
+}
+
+.bg-cream {
+  background-color: var(--color-cream);
+}
+
+.text-cyber-green {
+  color: var(--color-cyber-green);
+}
+
+.text-text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-text-secondary {
+  color: var(--color-text-secondary);
+}
+
+/* Additional animations */
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+} 
