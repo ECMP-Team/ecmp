@@ -5,15 +5,10 @@ import { motion } from "framer-motion";
 
 export const Hero = () => {
   return (
-    <section className="pt-12 pb-24 bg-dark-space relative overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyber-green/10 via-dark-secondary to-dark-space animated-gradient"></div>
-      </div>
-
-      {/* Grid lines for cyber aesthetic */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-
+    <section
+      className="pt-12 pb-24 relative overflow-hidden"
+      style={{ backgroundColor: "var(--dark-space)" }}
+    >
       <div className="container relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
