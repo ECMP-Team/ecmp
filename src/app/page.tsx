@@ -270,7 +270,7 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="flex gap-4 items-start">
-                <div className="flex-shrink-0 h-10 w-10 bg-dark-secondary border-2 border-gray-700 apple-radius-sm flex items-center justify-center">
+                <div className="flex-shrink-0 h-10 w-10 bg-dark-space border-2 border-gray-700 apple-radius-sm flex items-center justify-center">
                   <svg
                     className="w-5 h-5 text-cyber-green"
                     fill="none"
@@ -297,7 +297,7 @@ export default function Home() {
               </div>
 
               <div className="flex gap-4 items-start">
-                <div className="flex-shrink-0 h-10 w-10 bg-dark-secondary border-2 border-gray-700 apple-radius-sm flex items-center justify-center">
+                <div className="flex-shrink-0 h-10 w-10 bg-dark-space border-2 border-gray-700 apple-radius-sm flex items-center justify-center">
                   <svg
                     className="w-5 h-5 text-cyber-green"
                     fill="none"
@@ -324,7 +324,7 @@ export default function Home() {
               </div>
 
               <div className="flex gap-4 items-start">
-                <div className="flex-shrink-0 h-10 w-10 bg-dark-secondary border-2 border-gray-700 apple-radius-sm flex items-center justify-center">
+                <div className="flex-shrink-0 h-10 w-10 bg-dark-space border-2 border-gray-700 apple-radius-sm flex items-center justify-center">
                   <svg
                     className="w-5 h-5 text-cyber-green"
                     fill="none"
@@ -350,7 +350,7 @@ export default function Home() {
               </div>
 
               <div className="flex gap-4 items-start">
-                <div className="flex-shrink-0 h-10 w-10 bg-dark-secondary border-2 border-gray-700 apple-radius-sm flex items-center justify-center">
+                <div className="flex-shrink-0 h-10 w-10 bg-dark-space border-2 border-gray-700 apple-radius-sm flex items-center justify-center">
                   <svg
                     className="w-5 h-5 text-cyber-green"
                     fill="none"
