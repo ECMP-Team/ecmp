@@ -9,20 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "axios": "^1.6.2",
+    "clsx": "^2.0.0",
+    "framer-motion": "^10.16.4",
+    "markdown-it": "^13.0.2",
     "next": "^14.0.4",
+    "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "framer-motion": "^10.16.4",
-    "zustand": "^4.4.7",
-    "tailwindcss": "^3.3.5",
     "react-dropzone": "^14.2.3",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31",
-    "xlsx": "^0.18.5",
-    "clsx": "^2.0.0",
     "react-syntax-highlighter": "^15.5.0",
-    "markdown-it": "^13.0.2",
-    "axios": "^1.6.2"
+    "tailwindcss": "^3.3.5",
+    "xlsx": "^0.18.5",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@types/node": "^20.9.0",
