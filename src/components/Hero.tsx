@@ -5,11 +5,8 @@ import { motion } from "framer-motion";
 
 export const Hero = () => {
   return (
-    <section
-      className="pt-12 pb-24 relative overflow-hidden"
-      style={{ backgroundColor: "var(--dark-space)" }}
-    >
-      <div className="container relative z-10">
+    <section className="pt-12 pb-24 bg-dark-space relative overflow-hidden">
+      <div className="container relative z-[5]">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -90,15 +87,15 @@ export const Hero = () => {
           </motion.div>
 
           <motion.div
-            className="mt-10 text-center"
+            className="mt-10 text-center opacity-0"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <h3 className="text-gray-400 text-lg mb-3">
+            <div className="text-gray-400 text-lg mb-3">
               Join <span className="text-white font-medium">3,155</span> startup
               founders
-            </h3>
+            </div>
             <div className="flex justify-center">
               <div className="flex -space-x-3">
                 {[
@@ -114,7 +111,7 @@ export const Hero = () => {
                     key={i}
                     className="w-10 h-10 rounded-full border border-dark-space flex items-center justify-center text-xs font-medium"
                     style={{
-                      zIndex: 10 - i,
+                      zIndex: 5 - i,
                       background: avatar.color,
                       color: "white",
                       boxShadow: "0 1px 2px rgba(0,0,0,0.2)",
