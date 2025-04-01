@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export const Navbar = () => {
   return (
-    <nav className="bg-dark-space py-4 px-6 sticky top-0 z-50 backdrop-blur-md border-b border-gray-800 border-opacity-40">
+    <nav className="bg-dark-space py-2 px-6 sticky top-0 z-50 backdrop-blur-md border-b border-gray-800 border-opacity-40">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="group">
@@ -17,7 +17,7 @@ export const Navbar = () => {
             transition={{ duration: 0.5 }}
           >
             Campaign<span className="text-cyber-green">AI</span>
-            <span className="ml-2 h-1.5 w-1.5 rounded-full bg-cyber-green subtle-pulse"></span>
+            <span className="ml-2 h-1.5 w-1.5 rounded-full bg-cyber-green animate-pulse"></span>
           </motion.h1>
         </Link>
 

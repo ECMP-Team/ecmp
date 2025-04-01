@@ -13,16 +13,16 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-6">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl  font-medium mb-8">
               <span className="text-white">AI-Powered</span>
               <span className="block bg-clip-text text-transparent bg-gradient-to-r from-cyber-green to-teal-400">
-                Email Campaign Management
+                Email Campaigns
               </span>
             </h1>
           </motion.div>
 
           <motion.p
-            className="text-text-secondary text-lg md:text-xl mb-8"
+            className="text-text-secondary text-lg md:text-xl mb-10 max-w-3xl mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -31,7 +31,6 @@ export const Hero = () => {
             lead data, generate personalized emails, and boost your campaign
             performance.
           </motion.p>
-
           <motion.div
             className="flex flex-wrap justify-center gap-4"
             initial={{ opacity: 0, y: 10 }}
@@ -40,17 +39,52 @@ export const Hero = () => {
           >
             <a
               href="#upload"
-              className="px-6 py-3 bg-cyber-green text-dark-space font-medium rounded-lg shadow-neon hover-glow"
+              className="px-4 py-2 bg-cyber-green text-dark-space font-medium rounded-lg shadow-neon hover-glow text-sm"
             >
               Start Now
             </a>
             <a
               href="#learn-more"
-              className="px-6 py-3 border border-gray-700 text-white rounded-lg hover:border-cyber-green/50 transition-colors duration-300"
+              className="px-4 py-2 border border-gray-700 text-white rounded-lg hover:border-cyber-green/50 transition-colors duration-300 text-sm"
             >
               Learn More
             </a>
           </motion.div>
+
+          <motion.div
+            className="mt-8 flex justify-center"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <div
+              className="w-full rounded-2xl overflow-hidden relative"
+              style={{
+                boxShadow: `
+                  0 0 20px rgba(16, 185, 129, 0.3),
+                  0 0 40px rgba(16, 185, 129, 0.2),
+                  0 0 60px rgba(16, 185, 129, 0.1),
+                  inset 0 0 30px rgba(16, 185, 129, 0.2)
+                `,
+              }}
+            >
+              <video
+                className="w-full aspect-video object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source
+                  src="https://xguihxuzqibwxjnimxev.supabase.co/storage/v1/object/public/videos/marketing/website/supabase-table-editor.webm"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </motion.div>
+
+          {/* -------------------------------------------- */}
 
           <motion.div
             className="mt-12 flex justify-center"
