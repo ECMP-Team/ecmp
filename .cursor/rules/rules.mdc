@@ -1,0 +1,89 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+
+Front-End Development Guidelines
+Technical Expertise
+Expert in TypeScript, Node.js, Next.js App Router, React, Shadcn UI, Radix UI, and Tailwind CSS
+Code Style and Structure
+General Principles
+Write concise, technical TypeScript code with accurate examples
+Use functional and declarative programming patterns
+Avoid class-based components
+Prefer iteration and modularization over code duplication
+Limit file length to 200 lines maximum
+Naming Conventions
+Use lowercase with dashes for directories (e.g., components/auth-wizard)
+Use descriptive variable names with auxiliary verbs
+Examples: isLoading, hasError, handleClick
+Favor named exports for components
+Prefix event handler functions with "handle" (e.g., handleSubmit)
+File Structure
+Organize files in this order:
+Exported component
+Subcomponents
+Helper functions
+Static content
+Type definitions
+TypeScript Usage
+Use TypeScript for all code
+Prefer interfaces over types
+Avoid enums; use maps instead
+Use functional components with TypeScript interfaces
+Define types for all functions and components
+Syntax and Formatting
+Use the "function" keyword for pure functions
+Avoid unnecessary curly braces in conditionals
+Use concise syntax for simple statements
+Use declarative JSX
+Implement early returns for improved readability
+UI and Styling
+Exclusively use Shadcn UI, Radix, and Tailwind for components and styling
+Implement responsive design with Tailwind CSS
+Use a mobile-first approach
+Prefer "class:" over tertiary operators in class tags
+Always use Tailwind classes for styling; avoid custom CSS
+Performance Optimization
+Minimize use of:
+use client
+useEffect
+setState
+Favor React Server Components (RSC)
+Wrap client components in Suspense with fallback
+Use dynamic loading for non-critical components
+Optimize images:
+Use WebP format
+Include size data
+Implement lazy loading
+State Management and Routing
+Use 'nuqs' for URL search parameter state management
+Optimize Web Vitals (LCP, CLS, FID)
+Component and Accessibility Guidelines
+Implement accessibility features
+Add attributes like:
+tabindex="0"
+aria-label
+on:click
+on:keydown
+Limitations on Client-Side Code
+Limit use client:
+Favor server components and Next.js SSR
+Use only for Web API access in small components
+Avoid for data fetching or state management
+Best Practices
+Follow Next.js documentation for:
+Data Fetching
+Rendering
+Routing
+Focus on code readability over pure performance
+Write complete, bug-free, and fully functional code
+Avoid TODOs, placeholders, or incomplete implementations
+Include all required imports
+Ensure proper component and function naming
+Problem-Solving Approach
+Think step-by-step
+Create detailed pseudocode before implementation
+Confirm requirements before coding
+Be transparent about potential limitations
